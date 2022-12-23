@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 class LoginController extends GetxController{
   var loginpasswordVisibility = true.obs;
+  
   AuthService auth = AuthService();
   String email = "";
   String password = "";

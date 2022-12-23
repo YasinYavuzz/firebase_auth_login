@@ -1,6 +1,7 @@
 import 'package:firebase_baglama/modules/login/login_controller.dart';
 import 'package:firebase_baglama/shared/services/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -12,6 +13,7 @@ class LoginScreen extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(elevation: 0,toolbarHeight: 0,systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.black),),
       // backgroundColor: Color.fromARGB(255, 170, 169, 245),
       backgroundColor: Colors.black,
       resizeToAvoidBottomInset: false,

@@ -1,6 +1,7 @@
 import 'package:firebase_baglama/modules/login/login_screen.dart';
 import 'package:firebase_baglama/modules/register/register_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -10,6 +11,7 @@ class RegisterScreen extends GetView<RegisterController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(elevation: 0,toolbarHeight: 0,systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.black),),
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black,
       body: Center(

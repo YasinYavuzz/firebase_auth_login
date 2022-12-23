@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         // home: const LoginScreen(),
         initialRoute: Routes.LOGIN,
         getPages: AppPages.routes,
+        //showPerformanceOverlay: false,
       );
       },
     );
