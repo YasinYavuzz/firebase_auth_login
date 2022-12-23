@@ -1,4 +1,6 @@
 
+import 'package:firebase_baglama/modules/home/home_binding.dart';
+import 'package:firebase_baglama/modules/home/home_screen.dart';
 import 'package:firebase_baglama/modules/login/login_binding.dart';
 import 'package:firebase_baglama/modules/login/login_screen.dart';
 import 'package:firebase_baglama/modules/register/register_binging.dart';
@@ -13,13 +15,17 @@ class AppPages {
   static final routes = [
     GetPage(
       name: Routes.LOGIN,
-      page: () => LoginScreen(),
+      page: () => const LoginScreen(),
       binding: LoginBinding(),
     ),
     GetPage(
         name: Routes.REGISTER,
-        page: () => RegisterScreen(),
+        page: () => const RegisterScreen(),
         binding: RegisterBinding()),
+    GetPage(
+        name: Routes.HOME,
+        page: () => const HomeScreen(),
+        binding: HomeBinding()),
     
   ];
 }
