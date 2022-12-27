@@ -51,6 +51,7 @@ class LoginScreen extends GetView<LoginController> {
                   ),
                 ),
                 TextFormField(
+                  //initialValue: 'email@example.com',
                   onChanged: (value) {
                       controller.email = value;
                     },
@@ -97,6 +98,7 @@ class LoginScreen extends GetView<LoginController> {
                 ),
                 Obx(
                   () => TextFormField(
+                    //initialValue: '123456789',
                     onChanged: (value) {
                       controller.password = value;
                     },

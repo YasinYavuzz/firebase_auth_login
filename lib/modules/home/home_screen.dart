@@ -1,4 +1,6 @@
+
 import 'package:firebase_baglama/modules/home/home_controller.dart';
+import 'package:firebase_baglama/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -19,7 +21,6 @@ class HomeScreen extends GetView<HomeController> {
         backgroundColor: const Color(0xffECECEC),
       ),
       body: SingleChildScrollView(
-
         child: Column(
           children: [
             Align(
@@ -56,7 +57,8 @@ class HomeScreen extends GetView<HomeController> {
                       child: const Center(
                         child: TextField(
                           decoration: InputDecoration(
-                              contentPadding: EdgeInsets.only(left: 10, top: 12),
+                              contentPadding:
+                                  EdgeInsets.only(left: 10, top: 12),
                               hintText: "Search",
                               suffixIcon: Icon(
                                 Icons.search_sharp,
@@ -168,7 +170,8 @@ class HomeScreen extends GetView<HomeController> {
                               height: 5,
                             ),
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8),
                               height: 120,
                               child: Text(
                                 '${controller.blogs[index].icerik}',
@@ -178,18 +181,31 @@ class HomeScreen extends GetView<HomeController> {
                             const SizedBox(
                               height: 5,
                             ),
-                            Center(
-                              child: Container(
-                                width: 100,
-                                height: 40,
-                                color: Colors.black,
-                                child: const Center(
-                                  child: Text(
-                                    'Read More',
-                                    style: TextStyle(color: Colors.white),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                TextButton(onPressed: () {
+                                  Get.toNamed(Routes.UPDATEBLOG,parameters: {'document_id': controller.blogs[index].document_id.toString()});
+                                  
+                                }, child: const Text('Güncelle',style : TextStyle(fontWeight: FontWeight.bold,fontSize: 17,color: Colors.blue))),
+                                Container(
+                                  width: 100,
+                                  height: 40,
+                                  color: Colors.black,
+                                  child: const Center(
+                                    child: Text(
+                                      'Read More',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
                                   ),
                                 ),
-                              ),
+                                // IconButton(onPressed: () {
+                                  
+                                // }, icon: const Icon(Icons.delete,size: 35,color: Colors.red,))
+                                TextButton(onPressed: () {
+                                  controller.delete_blog(controller.blogs[index].document_id.toString());
+                                }, child: const Text('Sil',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,color: Colors.red),))
+                              ],
                             ),
                           ],
                         ),
@@ -197,7 +213,7 @@ class HomeScreen extends GetView<HomeController> {
                     },
                   )),
             ),
-        
+
             // Container(
             //   width: 330,
             //   height: 250,
@@ -297,6 +313,20 @@ class HomeScreen extends GetView<HomeController> {
             // ),
           ],
         ),
+      ),
+      floatingActionButton: Container(
+        width: 120,
+        height: 50,
+        child: FloatingActionButton(
+            elevation: 20,
+            onPressed: () {
+              Get.toNamed(Routes.CREATEBLOG);
+            },
+            shape: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide.none),
+            backgroundColor: Colors.green,
+            child: const Center(child: Text('Blog Olustur'))),
       ),
     );
   }

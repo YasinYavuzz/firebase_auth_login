@@ -6,11 +6,13 @@ class FireStoreService extends GetxService {
   Future<FireStoreService> init() async {
     return this;
   }
-  
+
   Stream<List<BlogModel>> readBlog(FirebaseFirestore db) {
     // HomeController controller = HomeController();
-    var blogs = db
-        .collection('Users').snapshots().map((query) => query.docs.map((item) => BlogModel.fromJson(item.data())).toList());
+    var blogs = db.collection('Users').snapshots().map((query) => query.docs
+        .map((item) =>
+            BlogModel.fromJson({"document_id": item.id, ...item.data()}))
+        .toList());
     return blogs;
     //return users;
     // controller.baslik.value = users['baslik'];
@@ -19,12 +21,16 @@ class FireStoreService extends GetxService {
     // print(controller.icerik);
   }
 
+  saveBlog(FirebaseFirestore db, Map<String, dynamic> data) {
+    db.collection('Users').add(data);
+  }
+
   // Future<DocumentSnapshot> getUsers(FirebaseFirestore db) async {
   //   DocumentSnapshot users = await db.collection('Users').doc('Yasin').get();
   //   return users;
   // }
-  // // verileri gösterme 
-  // // verileri anlık olarak ekranda görmek istiyorsak veritabanındaki değişikliklere göre verilerimizi ekranda görmek 
+  // // verileri gösterme
+  // // verileri anlık olarak ekranda görmek istiyorsak veritabanındaki değişikliklere göre verilerimizi ekranda görmek
   // // istiyorsak stream kullanmamız gerekiyor.
   // Stream<QuerySnapshot> getStatus(FirebaseFirestore db) {
   //   var ref = db.collection("Users").snapshots();

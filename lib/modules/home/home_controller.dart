@@ -14,6 +14,11 @@ class HomeController extends GetxController{
 
   RxList<BlogModel> blogs = RxList<BlogModel>([]);
 
+  void delete_blog(String document_id) async{
+    await db.collection('Users').doc(document_id).delete();
+  }
+  
+
  @override
   void onInit(){
     // blogData = await firestore.readBlog(db);

@@ -1,8 +1,6 @@
 import 'package:firebase_baglama/d.dart';
-import 'package:firebase_baglama/modules/login/login_screen.dart';
 import 'package:firebase_baglama/routes/app_pages.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
