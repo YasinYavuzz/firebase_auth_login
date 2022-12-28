@@ -25,6 +25,10 @@ class FireStoreService extends GetxService {
     db.collection('Users').add(data);
   }
 
+  updateBlog(FirebaseFirestore db, Map<String, dynamic> data, String document_id) async{
+    await db.collection('Users').doc('${document_id}').update(data);
+  }
+
   // Future<DocumentSnapshot> getUsers(FirebaseFirestore db) async {
   //   DocumentSnapshot users = await db.collection('Users').doc('Yasin').get();
   //   return users;

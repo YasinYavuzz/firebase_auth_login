@@ -20,4 +20,6 @@ class LoginController extends GetxController{
       return Icons.visibility_off;
     }
   }
+
+  
 }

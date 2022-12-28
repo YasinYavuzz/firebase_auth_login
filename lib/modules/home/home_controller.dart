@@ -1,6 +1,8 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_baglama/modules/home/home_model.dart';
+import 'package:firebase_baglama/modules/updateBlog/updateBlog_controller.dart';
+import 'package:firebase_baglama/shared/services/analytics_service.dart';
 import 'package:firebase_baglama/shared/services/firestore_service.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +10,9 @@ class HomeController extends GetxController{
   
   FirebaseFirestore db = FirebaseFirestore.instance;
   FireStoreService firestore = FireStoreService();
+  AnalyticsService analyticsService = Get.find(); // bu servisi bu controllerdan buluyoruz.
+
+  UpdateBlogController updatecontroller = Get.put(UpdateBlogController()); // update controllerı burada çağırıyoruz
 
   // // DocumentSnapshot? usersData; // kullanıcı verileri
   // DocumentSnapshot? blogData; // blog verileri

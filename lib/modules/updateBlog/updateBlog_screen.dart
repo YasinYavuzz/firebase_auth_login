@@ -78,14 +78,14 @@ class UpdateBlogScreen extends GetView<UpdateBlogController> {
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: Center(
                       child: TextFormField(
-                            initialValue: controller.baslik,
+                            //initialValue: controller.baslik,
                             style: const TextStyle(
                                 letterSpacing: 1,
                                 wordSpacing: 1,
                                 color: Colors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600),
-                            //controller: controller.baslik,
+                            controller: controller.baslik,
                             decoration:
                                 const InputDecoration(border: InputBorder.none),
                           ),
@@ -122,8 +122,8 @@ class UpdateBlogScreen extends GetView<UpdateBlogController> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
 
-                          initialValue: controller.icerik,
-                          //controller: controller.icerik,
+                          // initialValue: controller.icerik,
+                          controller: controller.icerik,
                           style: const TextStyle(
                               letterSpacing: 1,
                               wordSpacing: 1,
@@ -145,6 +145,7 @@ class UpdateBlogScreen extends GetView<UpdateBlogController> {
           InkWell(
             onTap: () {
               //controller.blogKaydet(controller.baslik.text,controller.icerik.text);
+              controller.blogGuncelle(controller.baslik.text, controller.icerik.text);
             },
             child: Container(
               width: 200,

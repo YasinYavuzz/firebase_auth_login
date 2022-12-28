@@ -29,6 +29,13 @@
             {
               "client_id": "455111750147-mk9s27vcvoagostmdta3pibinmqfdtmf.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "455111750147-640oflfh0abktdsdo6g1382gjeumtt5t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseBaglama"
+              }
             }
           ]
         }

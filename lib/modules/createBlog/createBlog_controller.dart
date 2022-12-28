@@ -16,6 +16,7 @@ class CreateBlogController extends GetxController{
   void blogKaydet(baslik, icerik){
     data.addAll({'baslik': baslik, 'icerik': icerik, 'kullanici_adi' : 'Yasin'});
     firestore.saveBlog(db, data);
+    Get.back();
   }
 
 }

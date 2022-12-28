@@ -186,7 +186,9 @@ class HomeScreen extends GetView<HomeController> {
                               children: [
                                 TextButton(onPressed: () {
                                   Get.toNamed(Routes.UPDATEBLOG,parameters: {'document_id': controller.blogs[index].document_id.toString()});
-                                  
+                                  controller.updatecontroller.document_id = controller.blogs[index].document_id.toString();
+                                  controller.updatecontroller.baslik.text = controller.blogs[index].baslik.toString();
+                                  controller.updatecontroller.icerik.text = controller.blogs[index].icerik.toString();
                                 }, child: const Text('Güncelle',style : TextStyle(fontWeight: FontWeight.bold,fontSize: 17,color: Colors.blue))),
                                 Container(
                                   width: 100,
@@ -202,8 +204,11 @@ class HomeScreen extends GetView<HomeController> {
                                 // IconButton(onPressed: () {
                                   
                                 // }, icon: const Icon(Icons.delete,size: 35,color: Colors.red,))
+
+                                // sil butonu içerisinde analytics üzerinde yazmış olduğumuz eventi burada tetikleyeceğim
                                 TextButton(onPressed: () {
                                   controller.delete_blog(controller.blogs[index].document_id.toString());
+                                  controller.analyticsService.logEvent();
                                 }, child: const Text('Sil',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,color: Colors.red),))
                               ],
                             ),

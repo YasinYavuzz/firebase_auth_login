@@ -1,38 +1,26 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_baglama/shared/services/firestore_service.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../home/home_controller.dart';
+import '../home/home_model.dart';
+
 class UpdateBlogController extends GetxController {
-
+  //HomeController find = Get.find();
   FirebaseFirestore db = FirebaseFirestore.instance;
-  // FireStoreService firestore = FireStoreService();
-
+  FireStoreService firestore = FireStoreService();
+  TextEditingController baslik = TextEditingController();
+  TextEditingController icerik = TextEditingController();
   String document_id = "";
-  String baslik = "";
-  String icerik = "";
-
   
+  //RxString baslik
+  
+  Map<String, dynamic> data = {};
 
-  void update_blog() async{
-    var ref = await db.collection('Users').doc('${document_id}').get();
-    baslik = ref['baslik'];
-    print(baslik);
-    icerik = ref['icerik'];
-    print(icerik);
-  }
-
-
-  @override
-  void onInit() async{
-    document_id = await Get.parameters["document_id"]!;
-    print(document_id);
-    var ref = await db.collection('Users').doc('${document_id}').get();
-    baslik = ref['baslik'];
-    print(baslik);
-    icerik = ref['icerik'];
-    print(icerik);
-    //print(baslik.value);
-    //print(icerik);
-    super.onInit();
+  void blogGuncelle(baslik, icerik) async{
+    data.addAll({'baslik': baslik, 'icerik': icerik, 'kullanici_adi' : 'Yasin'});
+    await db.collection('Users').doc('${document_id}').update(data);
+    Get.back();
   }
 }

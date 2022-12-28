@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_baglama/routes/app_pages.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class AuthService extends GetxService {
@@ -34,7 +35,7 @@ class AuthService extends GetxService {
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
-      ).then((value) => Get.offAndToNamed(Routes.HOME));
+      ).then((value) => Get.offAndToNamed(Routes.HOME,result: Get.snackbar('Giriş Başarılı', email)));
       
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
