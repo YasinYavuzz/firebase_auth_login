@@ -1,4 +1,4 @@
-import 'package:firebase_baglama/d.dart';
+import 'package:firebase_baglama/di.dart';
 import 'package:firebase_baglama/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
